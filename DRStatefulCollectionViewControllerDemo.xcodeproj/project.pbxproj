@@ -23,6 +23,8 @@
 		5104554D17FD4658008326CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5104554B17FD4658008326CC /* InfoPlist.strings */; };
 		5104554F17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104554E17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m */; };
 		5104555A17FD4770008326CC /* DRStateCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104555917FD4770008326CC /* DRStateCollectViewController.m */; };
+		5104555F17FD54FD008326CC /* thumbnailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104555E17FD54FD008326CC /* thumbnailViewCell.m */; };
+		5104556217FD556E008326CC /* ThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104556117FD556E008326CC /* ThumbnailViewController.m */; };
 		9BF66D654A92433EBF2620A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0AD2E122614B138F65F1A8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,10 @@
 		5104554E17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRStatefulCollectionViewControllerDemoTests.m; sourceTree = "<group>"; };
 		5104555817FD4770008326CC /* DRStateCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRStateCollectViewController.h; path = DRStatefulCollectionViewController/DRStateCollectViewController.h; sourceTree = "<group>"; };
 		5104555917FD4770008326CC /* DRStateCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRStateCollectViewController.m; path = DRStatefulCollectionViewController/DRStateCollectViewController.m; sourceTree = "<group>"; };
+		5104555D17FD54FD008326CC /* thumbnailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thumbnailViewCell.h; sourceTree = "<group>"; };
+		5104555E17FD54FD008326CC /* thumbnailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thumbnailViewCell.m; sourceTree = "<group>"; };
+		5104556017FD556E008326CC /* ThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailViewController.h; sourceTree = "<group>"; };
+		5104556117FD556E008326CC /* ThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,10 @@
 				5104553917FD4658008326CC /* ViewController.m */,
 				5104553B17FD4658008326CC /* Images.xcassets */,
 				5104552717FD4658008326CC /* Supporting Files */,
+				5104555D17FD54FD008326CC /* thumbnailViewCell.h */,
+				5104555E17FD54FD008326CC /* thumbnailViewCell.m */,
+				5104556017FD556E008326CC /* ThumbnailViewController.h */,
+				5104556117FD556E008326CC /* ThumbnailViewController.m */,
 			);
 			path = DRStatefulCollectionViewControllerDemo;
 			sourceTree = "<group>";
@@ -310,7 +320,9 @@
 				5104555A17FD4770008326CC /* DRStateCollectViewController.m in Sources */,
 				5104553A17FD4658008326CC /* ViewController.m in Sources */,
 				5104553117FD4658008326CC /* AppDelegate.m in Sources */,
+				5104556217FD556E008326CC /* ThumbnailViewController.m in Sources */,
 				5104552D17FD4658008326CC /* main.m in Sources */,
+				5104555F17FD54FD008326CC /* thumbnailViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

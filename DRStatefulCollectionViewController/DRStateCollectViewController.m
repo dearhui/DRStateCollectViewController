@@ -234,6 +234,7 @@ static const int kLoadingCellTag = 2570;
             [self.collectionView.infiniteScrollingView stopAnimating];
             
             self.collectionView.backgroundView = nil;
+            [self.loadingView removeFromSuperview];
 //            self.collectionView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
             self.collectionView.scrollEnabled = YES;
 //            self.collectionView.tableHeaderView.hidden = NO;
