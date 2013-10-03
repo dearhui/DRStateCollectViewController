@@ -64,7 +64,25 @@
 }
 
 - (void) statefulTableViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure {
-
+    dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
+        sleep(2);   // 5 sec
+        
+        NSMutableArray *arr = [NSMutableArray array];
+        for (int i = 0 ; i < 25; i++) {
+            [arr addObject:[NSString stringWithFormat:@"%d", i]];
+        }
+        self.items = arr;
+        
+        NSMutableArray *a = [NSMutableArray array];
+        
+        for(NSInteger i = 0; i < self.items.count; i++) {
+            [a addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            success([NSArray arrayWithArray:a]);
+        });
+    });
 }
 
 - (void) statefulTableViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {

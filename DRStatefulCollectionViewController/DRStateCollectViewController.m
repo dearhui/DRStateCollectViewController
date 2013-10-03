@@ -26,7 +26,6 @@ static const int kLoadingCellTag = 2570;
 
 @property (nonatomic, assign) BOOL isCountingRows;
 @property (nonatomic, assign) BOOL hasAddedPullToRefreshControl;
-@property (nonatomic,retain) UIRefreshControl *refreshControl;
 
 // Loading
 
@@ -125,27 +124,27 @@ static const int kLoadingCellTag = 2570;
     self.statefulState = DRStateCollectViewControllerStateLoadingFromPullToRefresh;
     
     [self.statefulDelegate statefulTableViewControllerWillBeginLoadingFromPullToRefresh:self completionBlock:^(NSArray *indexPaths) {
-        if([indexPaths count] > 0) {
-            CGFloat totalHeights = [self _cumulativeHeightForCellsAtIndexPaths:indexPaths];
-            
-            //Offset by the height of the pull to refresh view when it's expanded:
-            CGFloat offset = 0.0f;
-            
-            if([self respondsToSelector:@selector(refreshControl)]) {
-                offset = self.refreshControl.frame.size.height;
-            } else {
-                offset = self.collectionView.pullToRefreshView.frame.size.height;
-            }
-            
-            [self.collectionView setContentInset:UIEdgeInsetsMake(offset, 0.0f, 0.0f, 0.0f)];
-            [self.collectionView reloadData];
-            
-            if(self.collectionView.contentOffset.y == 0) {
-                self.collectionView.contentOffset = CGPointMake(0, (self.collectionView.contentOffset.y + totalHeights) - 60.0);
-            } else {
-                self.collectionView.contentOffset = CGPointMake(0, (self.collectionView.contentOffset.y + totalHeights));
-            }
-        }
+//        if([indexPaths count] > 0) {
+//            CGFloat totalHeights = [self _cumulativeHeightForCellsAtIndexPaths:indexPaths];
+//            
+//            //Offset by the height of the pull to refresh view when it's expanded:
+//            CGFloat offset = 0.0f;
+//            
+//            if([self respondsToSelector:@selector(refreshControl)]) {
+//                offset = self.refreshControl.frame.size.height;
+//            } else {
+//                offset = self.collectionView.pullToRefreshView.frame.size.height;
+//            }
+//            
+//            [self.collectionView setContentInset:UIEdgeInsetsMake(offset, 0.0f, 0.0f, 0.0f)];
+//            [self.collectionView reloadData];
+//            
+//            if(self.collectionView.contentOffset.y == 0) {
+//                self.collectionView.contentOffset = CGPointMake(0, (self.collectionView.contentOffset.y + totalHeights) - 60.0);
+//            } else {
+//                self.collectionView.contentOffset = CGPointMake(0, (self.collectionView.contentOffset.y + totalHeights));
+//            }
+//        }
         
         self.statefulState = DRStateCollectViewControllerStateIdle;
         [self _pullToRefreshFinishedLoading];
@@ -331,6 +330,7 @@ static const int kLoadingCellTag = 2570;
         if([self respondsToSelector:@selector(refreshControl)]) {
             self.refreshControl = [[UIRefreshControl alloc] init];
             [self.refreshControl addTarget:self action:@selector(_loadFromPullToRefresh) forControlEvents:UIControlEventValueChanged];
+            [self.collectionView addSubview:self.refreshControl];
         } else {
             [self.collectionView addPullToRefreshWithActionHandler:^{
                 [safeSelf _loadFromPullToRefresh];
