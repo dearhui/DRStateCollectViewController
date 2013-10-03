@@ -22,6 +22,8 @@
 		5104554517FD4658008326CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5104552417FD4658008326CC /* UIKit.framework */; };
 		5104554D17FD4658008326CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5104554B17FD4658008326CC /* InfoPlist.strings */; };
 		5104554F17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104554E17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m */; };
+		5104555A17FD4770008326CC /* DRStateCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104555917FD4770008326CC /* DRStateCollectViewController.m */; };
+		9BF66D654A92433EBF2620A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E0AD2E122614B138F65F1A8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		236BA6A383204D26822D6816 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		4E0AD2E122614B138F65F1A8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5104551D17FD4658008326CC /* DRStatefulCollectionViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRStatefulCollectionViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5104552017FD4658008326CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5104552217FD4658008326CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,6 +59,8 @@
 		5104554A17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DRStatefulCollectionViewControllerDemoTests-Info.plist"; sourceTree = "<group>"; };
 		5104554C17FD4658008326CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5104554E17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRStatefulCollectionViewControllerDemoTests.m; sourceTree = "<group>"; };
+		5104555817FD4770008326CC /* DRStateCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRStateCollectViewController.h; path = DRStatefulCollectionViewController/DRStateCollectViewController.h; sourceTree = "<group>"; };
+		5104555917FD4770008326CC /* DRStateCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRStateCollectViewController.m; path = DRStatefulCollectionViewController/DRStateCollectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 				5104552317FD4658008326CC /* CoreGraphics.framework in Frameworks */,
 				5104552517FD4658008326CC /* UIKit.framework in Frameworks */,
 				5104552117FD4658008326CC /* Foundation.framework in Frameworks */,
+				9BF66D654A92433EBF2620A5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,10 +91,12 @@
 		5104551417FD4658008326CC = {
 			isa = PBXGroup;
 			children = (
+				5104555B17FD4775008326CC /* DRStatefulCollectionViewController */,
 				5104552617FD4658008326CC /* DRStatefulCollectionViewControllerDemo */,
 				5104554817FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests */,
 				5104551F17FD4658008326CC /* Frameworks */,
 				5104551E17FD4658008326CC /* Products */,
+				236BA6A383204D26822D6816 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +116,7 @@
 				5104552217FD4658008326CC /* CoreGraphics.framework */,
 				5104552417FD4658008326CC /* UIKit.framework */,
 				5104554217FD4658008326CC /* XCTest.framework */,
+				4E0AD2E122614B138F65F1A8 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,6 +165,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5104555B17FD4775008326CC /* DRStatefulCollectionViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5104555817FD4770008326CC /* DRStateCollectViewController.h */,
+				5104555917FD4770008326CC /* DRStateCollectViewController.m */,
+			);
+			name = DRStatefulCollectionViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5104555217FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStatefulCollectionViewControllerDemo" */;
 			buildPhases = (
+				01E26D4FEE284010ACD6F837 /* Check Pods Manifest.lock */,
 				5104551917FD4658008326CC /* Sources */,
 				5104551A17FD4658008326CC /* Frameworks */,
 				5104551B17FD4658008326CC /* Resources */,
+				DDD116FDF18E4BA9A4B09E68 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,11 +269,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01E26D4FEE284010ACD6F837 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DDD116FDF18E4BA9A4B09E68 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5104551917FD4658008326CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5104555A17FD4770008326CC /* DRStateCollectViewController.m in Sources */,
 				5104553A17FD4658008326CC /* ViewController.m in Sources */,
 				5104553117FD4658008326CC /* AppDelegate.m in Sources */,
 				5104552D17FD4658008326CC /* main.m in Sources */,
@@ -389,6 +444,7 @@
 		};
 		5104555317FD4658008326CC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 236BA6A383204D26822D6816 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -402,6 +458,7 @@
 		};
 		5104555417FD4658008326CC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 236BA6A383204D26822D6816 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -474,6 +531,7 @@
 				5104555417FD4658008326CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5104555517FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStatefulCollectionViewControllerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +540,7 @@
 				5104555717FD4658008326CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
