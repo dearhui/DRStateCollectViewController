@@ -20,27 +20,26 @@
 
 @end
 
-static const int kLoadingCellTag = 2570;
+//static const int kLoadingCellTag = 2570;
 
 @interface DRStateCollectViewController ()
 
-@property (nonatomic, assign) BOOL isCountingRows;
+//@property (nonatomic, assign) BOOL isCountingRows;
 @property (nonatomic, assign) BOOL hasAddedPullToRefreshControl;
 
 // Loading
 
 - (void) _loadFirstPage;
 - (void) _loadNextPage;
-
 - (void) _loadFromPullToRefresh;
 
 // Table View Cells & NSIndexPaths
 
-- (UITableViewCell *) _cellForLoadingCell;
-- (BOOL) _indexRepresentsLastSection:(NSInteger)section;
-- (BOOL) _indexPathRepresentsLastRow:(NSIndexPath *)indexPath;
+//- (UITableViewCell *) _cellForLoadingCell;
+//- (BOOL) _indexRepresentsLastSection:(NSInteger)section;
+//- (BOOL) _indexPathRepresentsLastRow:(NSIndexPath *)indexPath;
 - (NSInteger) _totalNumberOfRows;
-- (CGFloat) _cumulativeHeightForCellsAtIndexPaths:(NSArray *)indexPaths;
+//- (CGFloat) _cumulativeHeightForCellsAtIndexPaths:(NSArray *)indexPaths;
 
 @end
 
@@ -158,36 +157,37 @@ static const int kLoadingCellTag = 2570;
 
 #pragma mark - Table View Cells & NSIndexPaths
 
-- (UITableViewCell *) _cellForLoadingCell {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-    
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator.center = cell.center;
-    [cell addSubview:activityIndicator];
-    
-    [activityIndicator startAnimating];
-    
-    cell.tag = kLoadingCellTag;
-    
-    return cell;
-}
-- (BOOL) _indexRepresentsLastSection:(NSInteger)section {
-    NSInteger totalNumberOfSections = [self numberOfSectionsInCollectionView:self.collectionView];
-    if(section != (totalNumberOfSections - 1)) return NO; //section is not the last section!
-    
-    return YES;
-}
-- (BOOL) _indexPathRepresentsLastRow:(NSIndexPath *)indexPath {
-    NSInteger totalNumberOfSections = [self numberOfSectionsInCollectionView:self.collectionView];
-    if(indexPath.section != (totalNumberOfSections - 1)) return NO; //indexPath.section is not the last section!
-    
-    NSInteger totalNumberOfRowsInSection = [self collectionView:self.collectionView numberOfItemsInSection:indexPath.section];
-    if(indexPath.row != (totalNumberOfRowsInSection - 1)) return NO; //indexPath.row is not the last row in this section!
-    
-    return YES;
-}
+//- (UITableViewCell *) _cellForLoadingCell {
+//    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+//    
+//    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    activityIndicator.center = cell.center;
+//    [cell addSubview:activityIndicator];
+//    
+//    [activityIndicator startAnimating];
+//    
+//    cell.tag = kLoadingCellTag;
+//    
+//    return cell;
+//}
+//- (BOOL) _indexRepresentsLastSection:(NSInteger)section {
+//    NSInteger totalNumberOfSections = [self numberOfSectionsInCollectionView:self.collectionView];
+//    if(section != (totalNumberOfSections - 1)) return NO; //section is not the last section!
+//    
+//    return YES;
+//}
+//- (BOOL) _indexPathRepresentsLastRow:(NSIndexPath *)indexPath {
+//    NSInteger totalNumberOfSections = [self numberOfSectionsInCollectionView:self.collectionView];
+//    if(indexPath.section != (totalNumberOfSections - 1)) return NO; //indexPath.section is not the last section!
+//    
+//    NSInteger totalNumberOfRowsInSection = [self collectionView:self.collectionView numberOfItemsInSection:indexPath.section];
+//    if(indexPath.row != (totalNumberOfRowsInSection - 1)) return NO; //indexPath.row is not the last row in this section!
+//    
+//    return YES;
+//}
+
 - (NSInteger) _totalNumberOfRows {
-    self.isCountingRows = YES;
+//    self.isCountingRows = YES;
     
     NSInteger numberOfRows = 0;
     
@@ -196,21 +196,21 @@ static const int kLoadingCellTag = 2570;
         numberOfRows += [self collectionView:self.collectionView numberOfItemsInSection:i];
     }
     
-    self.isCountingRows = NO;
+//    self.isCountingRows = NO;
     
     return numberOfRows;
 }
-- (CGFloat) _cumulativeHeightForCellsAtIndexPaths:(NSArray *)indexPaths {
-    if(!indexPaths) return 0.0;
-    
-    CGFloat totalHeight = 0.0;
-    
-    for(NSIndexPath *indexPath in indexPaths) {
-//        totalHeight += [self collectionView:self.collectionView heightForRowAtIndexPath:indexPath];
-    }
-    
-    return totalHeight;
-}
+//- (CGFloat) _cumulativeHeightForCellsAtIndexPaths:(NSArray *)indexPaths {
+//    if(!indexPaths) return 0.0;
+//    
+//    CGFloat totalHeight = 0.0;
+//    
+//    for(NSIndexPath *indexPath in indexPaths) {
+////        totalHeight += [self collectionView:self.collectionView heightForRowAtIndexPath:indexPath];
+//    }
+//    
+//    return totalHeight;
+//}
 
 - (void) _pullToRefreshFinishedLoading {
     [self.collectionView.pullToRefreshView stopAnimating];
@@ -232,7 +232,7 @@ static const int kLoadingCellTag = 2570;
         case DRStateCollectViewControllerStateIdle:
             [self.collectionView.infiniteScrollingView stopAnimating];
             
-            self.collectionView.backgroundView = nil;
+//            self.collectionView.backgroundView = nil;
             [self.loadingView removeFromSuperview];
 //            self.collectionView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
             self.collectionView.scrollEnabled = YES;
@@ -243,7 +243,8 @@ static const int kLoadingCellTag = 2570;
             break;
             
         case DRStateCollectViewControllerStateInitialLoading:
-            self.collectionView.backgroundView = self.loadingView;
+            [self.collectionView addSubview:self.loadingView];
+//            self.collectionView.backgroundView = self.loadingView;
 //            self.collectionView.separatorStyle = UITableViewCellSeparatorStyleNone;
             self.collectionView.scrollEnabled = NO;
 //            self.collectionView.tableHeaderView.hidden = YES;
@@ -272,8 +273,8 @@ static const int kLoadingCellTag = 2570;
             
         case DRStateCollectViewControllerError:
             [self.collectionView.infiniteScrollingView stopAnimating];
-            
-            self.collectionView.backgroundView = self.errorView;
+            [self.collectionView addSubview:self.errorView];
+//            self.collectionView.backgroundView = self.errorView;
 //            self.collectionView.separatorStyle = UITableViewCellSeparatorStyleNone;
             self.collectionView.scrollEnabled = NO;
 //            self.collectionView.tableHeaderView.hidden = YES;
@@ -296,6 +297,7 @@ static const int kLoadingCellTag = 2570;
     [super loadView];
     
     self.loadingView = [[UIView alloc] initWithFrame:self.collectionView.bounds];
+    self.loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.loadingView.backgroundColor = [UIColor greenColor];
     
     self.emptyView = [[UIView alloc] initWithFrame:self.collectionView.bounds];
@@ -309,16 +311,7 @@ static const int kLoadingCellTag = 2570;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
-}
-- (void) viewDidUnload {
-    [super viewDidUnload];
     
-    self.loadingView = nil;
-    self.emptyView = nil;
-    self.errorView = nil;
-}
-
-- (void) viewWillAppear:(BOOL)animated {
     __block DRStateCollectViewController *safeSelf = self;
     
     BOOL shouldPullToRefresh = YES;
@@ -348,8 +341,14 @@ static const int kLoadingCellTag = 2570;
     [self updateInfiniteScrollingHandlerAndFooterView:shouldInfinitelyScroll];
     
     [self _loadFirstPage];
+}
+
+- (void) viewDidUnload {
+    [super viewDidUnload];
     
-    [super viewWillAppear:animated];
+    self.loadingView = nil;
+    self.emptyView = nil;
+    self.errorView = nil;
 }
 
 - (void) updateInfiniteScrollingHandlerAndFooterView:(BOOL)shouldInfinitelyScroll {
