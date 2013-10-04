@@ -8,7 +8,7 @@
 
 #import "ThumbnailViewController.h"
 #import "thumbnailViewCell.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>
+#import "UIImageView+AFNetworking.h"
 
 @interface ThumbnailViewController ()
     @property NSMutableArray *items;
@@ -38,7 +38,7 @@
     thumbnailViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/ShadoFlameX/PhotoCollectionView/master/Photos/"];
-    NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg", indexPath.row % 25];
+    NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%ld.jpg", indexPath.row % 25];
     NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
     
     [cell.imageView setImageWithURL:photoURL];
@@ -102,7 +102,8 @@
 }
 
 - (BOOL) statefulTableViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc {
-    return self.items.count <= 100;
+    NSLog(@"items count %lu", (unsigned long)self.items.count);
+    return self.items.count < 50;
 }
 
 @end

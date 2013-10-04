@@ -144,7 +144,7 @@
 //                self.collectionView.contentOffset = CGPointMake(0, (self.collectionView.contentOffset.y + totalHeights));
 //            }
 //        }
-        
+
         self.statefulState = DRStateCollectViewControllerStateIdle;
         [self _pullToRefreshFinishedLoading];
     } failure:^(NSError *error) {
