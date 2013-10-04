@@ -66,7 +66,7 @@
     
     [self.collectionView reloadData];
     
-    [self.statefulDelegate stateCollectViewControllerWillBeginInitialLoading:self completionBlock:^{
+    [self.statefulDelegate stateCollectViewController:self completionBlock:^{
         [self.collectionView reloadData]; // We have to call reloadData before we call _totalNumberOfRows otherwise the new count (after loading) won't be accurately reflected.
         
         if([self _totalNumberOfRows] > 0) {
@@ -76,7 +76,7 @@
         }
     } failure:^(NSError *error) {
         self.statefulState = DRStateCollectViewControllerError;
-    }];
+    } loadState:DRStateCollectStateLoadInitial];
 }
 
 - (void) _loadNextPage {
@@ -87,7 +87,7 @@
         
         self.statefulState = DRStateCollectViewControllerStateLoadingNextPage;
         
-        [self.statefulDelegate stateCollectViewControllerWillBeginLoadingNextPage:self completionBlock:^{
+        [self.statefulDelegate stateCollectViewController:self completionBlock:^{
             [self.collectionView reloadData];
             
             if(![self.statefulDelegate stateCollectViewControllerShouldBeginLoadingNextPage:self]) {
@@ -102,7 +102,7 @@
         } failure:^(NSError *error) {
             //TODO What should we do here?
             self.statefulState = DRStateCollectViewControllerStateIdle;
-        }];
+        } loadState:DRStateCollectStateLoadNext];
     } else {
         self.collectionView.showsInfiniteScrolling = NO;
     }
@@ -113,7 +113,7 @@
     
     self.statefulState = DRStateCollectViewControllerStateLoadingFromPullToRefresh;
     
-    [self.statefulDelegate stateCollectViewControllerWillBeginLoadingFromPullToRefresh:self completionBlock:^(NSArray *indexPaths) {
+    [self.statefulDelegate stateCollectViewController:self completionBlock:^(void) {
         self.statefulState = DRStateCollectViewControllerStateIdle;
         [self _pullToRefreshFinishedLoading];
         
@@ -125,7 +125,7 @@
         
         self.statefulState = DRStateCollectViewControllerStateIdle;
         [self _pullToRefreshFinishedLoading];
-    }];
+    } loadState:DRStateCollectStateLoadPull];
 }
 
 #pragma mark - Table View Cells & NSIndexPaths
@@ -284,17 +284,13 @@
 
 #pragma mark - DRStateCollectViewControllerDelegate
 
-- (void) stateCollectViewControllerWillBeginInitialLoading:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {
-    NSAssert(NO, @"stateCollectViewControllerWillBeginInitialLoading:completionBlock:failure: is meant to be implementd by it's subclasses!");
+- (void) stateCollectViewController:(DRStateCollectViewController *)vc
+                    completionBlock:(void (^)())success
+                            failure:(void (^)(NSError *error))failure
+                          loadState:(DRStateCollectStateLoad)state {
+    NSAssert(NO, @"stateCollectViewController:completionBlock:failure:loadState: is meant to be implementd by it's subclasses!");
 }
 
-- (void) stateCollectViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure {
-    NSAssert(NO, @"stateCollectViewControllerWillBeginLoadingFromPullToRefresh:completionBlock:failure: is meant to be implementd by it's subclasses!");
-}
-
-- (void) stateCollectViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *))failure {
-    NSAssert(NO, @"stateCollectViewControllerWillBeginLoadingNextPage:completionBlock:failure: is meant to be implementd by it's subclasses!");
-}
 - (BOOL) stateCollectViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc {
     NSAssert(NO, @"stateCollectViewControllerShouldBeginLoadingNextPage is meant to be implementd by it's subclasses!");    
     

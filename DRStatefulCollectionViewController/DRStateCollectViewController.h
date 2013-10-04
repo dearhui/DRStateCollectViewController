@@ -18,18 +18,21 @@ typedef enum {
 	DRStateCollectViewControllerError = 5,
 } DRStateCollectViewControllerState;
 
+typedef enum {
+    DRStateCollectStateLoadInitial = 0,
+    DRStateCollectStateLoadPull,
+    DRStateCollectStateLoadNext
+} DRStateCollectStateLoad;
+
 @class DRStateCollectViewController;
 
 @protocol DRStateCollectViewControllerDelegate <NSObject>
 
 @required
-- (void) stateCollectViewControllerWillBeginInitialLoading:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure;
-
-@required
-- (void) stateCollectViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure;
-
-@required
-- (void) stateCollectViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure;
+- (void) stateCollectViewController:(DRStateCollectViewController *)vc
+                    completionBlock:(void (^)())success
+                            failure:(void (^)(NSError *error))failure
+                          loadState:(DRStateCollectStateLoad)state;
 
 @required
 - (BOOL) stateCollectViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc;

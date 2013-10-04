@@ -47,62 +47,54 @@
 }
 
 #pragma mark - DRStateCollectViewControllerDelegate
-- (void) stateCollectViewControllerWillBeginInitialLoading:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {
-    dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
-        sleep(2);
-        
-        NSMutableArray *arr = [NSMutableArray array];
-        for (int i = 0 ; i < 25; i++) {
-            [arr addObject:[NSString stringWithFormat:@"%d", i]];
+- (void) stateCollectViewController:(DRStateCollectViewController *)vc
+                    completionBlock:(void (^)())success
+                            failure:(void (^)(NSError *error))failure
+                          loadState:(DRStateCollectStateLoad)state
+{
+    switch (state) {
+        case DRStateCollectStateLoadInitial:
+        case DRStateCollectStateLoadPull:
+        {
+            dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
+                sleep(2);
+                
+                NSMutableArray *arr = [NSMutableArray array];
+                for (int i = 0 ; i < 25; i++) {
+                    [arr addObject:[NSString stringWithFormat:@"%d", i]];
+                }
+                self.items = arr;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    success();
+                });
+            });
+            break;
         }
-        self.items = arr;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            success();
-        });
-    });
-}
+        case DRStateCollectStateLoadNext:
+        {
+            dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
+                sleep(2);
+                
+                NSMutableArray *arr = [NSMutableArray array];
+                for (int i = 0 ; i < 25; i++) {
+                    [arr addObject:[NSString stringWithFormat:@"%d", i]];
+                }
+                [self.items addObjectsFromArray:arr];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    success();
+                });
+            });
+            break;
+        }
+        default:
+            break;
+    }
 
-- (void) stateCollectViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure {
-    dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
-        sleep(2);
-        
-        NSMutableArray *arr = [NSMutableArray array];
-        for (int i = 0 ; i < 25; i++) {
-            [arr addObject:[NSString stringWithFormat:@"%d", i]];
-        }
-        self.items = arr;
-        
-        NSMutableArray *a = [NSMutableArray array];
-        
-        for(NSInteger i = 0; i < self.items.count; i++) {
-            [a addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            success([NSArray arrayWithArray:a]);
-        });
-    });
-}
-
-- (void) stateCollectViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {
-    dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
-        sleep(2);
-        
-        NSMutableArray *arr = [NSMutableArray array];
-        for (int i = 0 ; i < 25; i++) {
-            [arr addObject:[NSString stringWithFormat:@"%d", i]];
-        }
-        [self.items addObjectsFromArray:arr];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            success();
-        });
-    });
 }
 
 - (BOOL) stateCollectViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc {
-    NSLog(@"items count %lu", (unsigned long)self.items.count);
     return self.items.count < 50;
 }
 
