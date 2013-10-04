@@ -47,9 +47,9 @@
 }
 
 #pragma mark - DRStateCollectViewControllerDelegate
-- (void) statefulTableViewControllerWillBeginInitialLoading:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {
+- (void) stateCollectViewControllerWillBeginInitialLoading:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
-        sleep(2);   // 5 sec
+        sleep(2);
         
         NSMutableArray *arr = [NSMutableArray array];
         for (int i = 0 ; i < 25; i++) {
@@ -63,9 +63,9 @@
     });
 }
 
-- (void) statefulTableViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure {
+- (void) stateCollectViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure {
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
-        sleep(2);   // 5 sec
+        sleep(2);
         
         NSMutableArray *arr = [NSMutableArray array];
         for (int i = 0 ; i < 25; i++) {
@@ -85,9 +85,9 @@
     });
 }
 
-- (void) statefulTableViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {
+- (void) stateCollectViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {
     dispatch_async(dispatch_get_global_queue(0, DISPATCH_QUEUE_PRIORITY_DEFAULT), ^{
-        sleep(2);   // 5 sec
+        sleep(2);
         
         NSMutableArray *arr = [NSMutableArray array];
         for (int i = 0 ; i < 25; i++) {
@@ -101,7 +101,7 @@
     });
 }
 
-- (BOOL) statefulTableViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc {
+- (BOOL) stateCollectViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc {
     NSLog(@"items count %lu", (unsigned long)self.items.count);
     return self.items.count < 50;
 }
