@@ -115,6 +115,10 @@
     [self.statefulDelegate statefulTableViewControllerWillBeginLoadingFromPullToRefresh:self completionBlock:^(NSArray *indexPaths) {
         self.statefulState = DRStateCollectViewControllerStateIdle;
         [self _pullToRefreshFinishedLoading];
+        
+        if([self.statefulDelegate statefulTableViewControllerShouldBeginLoadingNextPage:self]) {
+            self.collectionView.showsInfiniteScrolling = YES;
+        };
     } failure:^(NSError *error) {
         //TODO: What should we do here?
         

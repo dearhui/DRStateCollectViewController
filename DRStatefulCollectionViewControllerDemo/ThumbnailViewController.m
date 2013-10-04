@@ -38,7 +38,7 @@
     thumbnailViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     NSURL *urlPrefix = [NSURL URLWithString:@"https://raw.github.com/ShadoFlameX/PhotoCollectionView/master/Photos/"];
-    NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%ld.jpg", indexPath.row % 25];
+    NSString *photoFilename = [NSString stringWithFormat:@"thumbnail%d.jpg", indexPath.row % 25];
     NSURL *photoURL = [urlPrefix URLByAppendingPathComponent:photoFilename];
     
     [cell.imageView setImageWithURL:photoURL];
