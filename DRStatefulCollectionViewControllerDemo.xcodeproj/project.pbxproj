@@ -76,8 +76,8 @@
 		5104554A17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DRStatefulCollectionViewControllerDemoTests-Info.plist"; sourceTree = "<group>"; };
 		5104554C17FD4658008326CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5104554E17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRStatefulCollectionViewControllerDemoTests.m; sourceTree = "<group>"; };
-		5104555817FD4770008326CC /* DRStateCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DRStateCollectViewController.h; path = DRStatefulCollectionViewController/DRStateCollectViewController.h; sourceTree = "<group>"; };
-		5104555917FD4770008326CC /* DRStateCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DRStateCollectViewController.m; path = DRStatefulCollectionViewController/DRStateCollectViewController.m; sourceTree = "<group>"; };
+		5104555817FD4770008326CC /* DRStateCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DRStateCollectViewController.h; path = DRStatefulCollectionViewController/DRStateCollectViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		5104555917FD4770008326CC /* DRStateCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DRStateCollectViewController.m; path = DRStatefulCollectionViewController/DRStateCollectViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		5104555D17FD54FD008326CC /* thumbnailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thumbnailViewCell.h; sourceTree = "<group>"; };
 		5104555E17FD54FD008326CC /* thumbnailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thumbnailViewCell.m; sourceTree = "<group>"; };
 		5104556017FD556E008326CC /* ThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailViewController.h; sourceTree = "<group>"; };
@@ -184,16 +184,16 @@
 			children = (
 				5104552F17FD4658008326CC /* AppDelegate.h */,
 				5104553017FD4658008326CC /* AppDelegate.m */,
+				5104555D17FD54FD008326CC /* thumbnailViewCell.h */,
+				5104555E17FD54FD008326CC /* thumbnailViewCell.m */,
+				5104556017FD556E008326CC /* ThumbnailViewController.h */,
+				5104556117FD556E008326CC /* ThumbnailViewController.m */,
 				5104553217FD4658008326CC /* Main_iPhone.storyboard */,
 				5104553517FD4658008326CC /* Main_iPad.storyboard */,
 				5104553817FD4658008326CC /* ViewController.h */,
 				5104553917FD4658008326CC /* ViewController.m */,
 				5104553B17FD4658008326CC /* Images.xcassets */,
 				5104552717FD4658008326CC /* Supporting Files */,
-				5104555D17FD54FD008326CC /* thumbnailViewCell.h */,
-				5104555E17FD54FD008326CC /* thumbnailViewCell.m */,
-				5104556017FD556E008326CC /* ThumbnailViewController.h */,
-				5104556117FD556E008326CC /* ThumbnailViewController.m */,
 			);
 			path = DRStatefulCollectionViewControllerDemo;
 			sourceTree = "<group>";

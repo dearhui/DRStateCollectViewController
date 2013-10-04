@@ -66,7 +66,7 @@
     
     [self.collectionView reloadData];
     
-    [self.statefulDelegate statefulTableViewControllerWillBeginInitialLoading:self completionBlock:^{
+    [self.statefulDelegate stateCollectViewControllerWillBeginInitialLoading:self completionBlock:^{
         [self.collectionView reloadData]; // We have to call reloadData before we call _totalNumberOfRows otherwise the new count (after loading) won't be accurately reflected.
         
         if([self _totalNumberOfRows] > 0) {
@@ -78,18 +78,19 @@
         self.statefulState = DRStateCollectViewControllerError;
     }];
 }
+
 - (void) _loadNextPage {
     if(self.statefulState == DRStateCollectViewControllerStateLoadingNextPage) return;
     
-    if([self.statefulDelegate statefulTableViewControllerShouldBeginLoadingNextPage:self]) {
-        self.collectionView.showsInfiniteScrolling = YES;
+    if([self.statefulDelegate stateCollectViewControllerShouldBeginLoadingNextPage:self]) {
+//        self.collectionView.showsInfiniteScrolling = YES;
         
         self.statefulState = DRStateCollectViewControllerStateLoadingNextPage;
         
-        [self.statefulDelegate statefulTableViewControllerWillBeginLoadingNextPage:self completionBlock:^{
+        [self.statefulDelegate stateCollectViewControllerWillBeginLoadingNextPage:self completionBlock:^{
             [self.collectionView reloadData];
             
-            if(![self.statefulDelegate statefulTableViewControllerShouldBeginLoadingNextPage:self]) {
+            if(![self.statefulDelegate stateCollectViewControllerShouldBeginLoadingNextPage:self]) {
                 self.collectionView.showsInfiniteScrolling = NO;
             };
             
@@ -112,11 +113,11 @@
     
     self.statefulState = DRStateCollectViewControllerStateLoadingFromPullToRefresh;
     
-    [self.statefulDelegate statefulTableViewControllerWillBeginLoadingFromPullToRefresh:self completionBlock:^(NSArray *indexPaths) {
+    [self.statefulDelegate stateCollectViewControllerWillBeginLoadingFromPullToRefresh:self completionBlock:^(NSArray *indexPaths) {
         self.statefulState = DRStateCollectViewControllerStateIdle;
         [self _pullToRefreshFinishedLoading];
         
-        if([self.statefulDelegate statefulTableViewControllerShouldBeginLoadingNextPage:self]) {
+        if([self.statefulDelegate stateCollectViewControllerShouldBeginLoadingNextPage:self]) {
             self.collectionView.showsInfiniteScrolling = YES;
         };
     } failure:^(NSError *error) {
@@ -149,8 +150,8 @@
 #pragma mark - Setter Overrides
 
 - (void) setStatefulState:(DRStateCollectViewControllerState)statefulState {
-    if([self.statefulDelegate respondsToSelector:@selector(statefulTableViewController:willTransitionToState:)]) {
-        [self.statefulDelegate statefulTableViewController:self willTransitionToState:statefulState];
+    if([self.statefulDelegate respondsToSelector:@selector(stateCollectViewController:willTransitionToState:)]) {
+        [self.statefulDelegate stateCollectViewController:self willTransitionToState:statefulState];
     }
     
 	_statefulState = statefulState;
@@ -198,8 +199,8 @@
             break;
     }
     
-    if([self.statefulDelegate respondsToSelector:@selector(statefulTableViewController:didTransitionToState:)]) {
-        [self.statefulDelegate statefulTableViewController:self didTransitionToState:statefulState];
+    if([self.statefulDelegate respondsToSelector:@selector(stateCollectViewController:didTransitionToState:)]) {
+        [self.statefulDelegate stateCollectViewController:self didTransitionToState:statefulState];
     }
 }
 
@@ -227,8 +228,8 @@
     __block DRStateCollectViewController *safeSelf = self;
     
     BOOL shouldPullToRefresh = YES;
-    if([self.statefulDelegate respondsToSelector:@selector(statefulTableViewControllerShouldPullToRefresh:)]) {
-        shouldPullToRefresh = [self.statefulDelegate statefulTableViewControllerShouldPullToRefresh:self];
+    if([self.statefulDelegate respondsToSelector:@selector(stateCollectViewControllerShouldPullToRefresh:)]) {
+        shouldPullToRefresh = [self.statefulDelegate stateCollectViewControllerShouldPullToRefresh:self];
     }
     
     if(!self.hasAddedPullToRefreshControl && shouldPullToRefresh) {
@@ -246,8 +247,8 @@
     }
     
     BOOL shouldInfinitelyScroll = YES;
-    if([self.statefulDelegate respondsToSelector:@selector(statefulTableViewControllerShouldInfinitelyScroll:)]) {
-        shouldInfinitelyScroll = [self.statefulDelegate statefulTableViewControllerShouldInfinitelyScroll:self];
+    if([self.statefulDelegate respondsToSelector:@selector(stateCollectViewControllerShouldInfinitelyScroll:)]) {
+        shouldInfinitelyScroll = [self.statefulDelegate stateCollectViewControllerShouldInfinitelyScroll:self];
     }
     
     [self updateInfiniteScrollingHandlerAndFooterView:shouldInfinitelyScroll];
@@ -283,19 +284,19 @@
 
 #pragma mark - DRStateCollectViewControllerDelegate
 
-- (void) statefulTableViewControllerWillBeginInitialLoading:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {
-    NSAssert(NO, @"statefulTableViewControllerWillBeginInitialLoading:completionBlock:failure: is meant to be implementd by it's subclasses!");
+- (void) stateCollectViewControllerWillBeginInitialLoading:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure {
+    NSAssert(NO, @"stateCollectViewControllerWillBeginInitialLoading:completionBlock:failure: is meant to be implementd by it's subclasses!");
 }
 
-- (void) statefulTableViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure {
-    NSAssert(NO, @"statefulTableViewControllerWillBeginLoadingFromPullToRefresh:completionBlock:failure: is meant to be implementd by it's subclasses!");
+- (void) stateCollectViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure {
+    NSAssert(NO, @"stateCollectViewControllerWillBeginLoadingFromPullToRefresh:completionBlock:failure: is meant to be implementd by it's subclasses!");
 }
 
-- (void) statefulTableViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *))failure {
-    NSAssert(NO, @"statefulTableViewControllerWillBeginLoadingNextPage:completionBlock:failure: is meant to be implementd by it's subclasses!");
+- (void) stateCollectViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *))failure {
+    NSAssert(NO, @"stateCollectViewControllerWillBeginLoadingNextPage:completionBlock:failure: is meant to be implementd by it's subclasses!");
 }
-- (BOOL) statefulTableViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc {
-    NSAssert(NO, @"statefulTableViewControllerShouldBeginLoadingNextPage is meant to be implementd by it's subclasses!");    
+- (BOOL) stateCollectViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc {
+    NSAssert(NO, @"stateCollectViewControllerShouldBeginLoadingNextPage is meant to be implementd by it's subclasses!");    
     
     return NO;
 }

@@ -23,28 +23,28 @@ typedef enum {
 @protocol DRStateCollectViewControllerDelegate <NSObject>
 
 @required
-- (void) statefulTableViewControllerWillBeginInitialLoading:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure;
+- (void) stateCollectViewControllerWillBeginInitialLoading:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure;
 
 @required
-- (void) statefulTableViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure;
+- (void) stateCollectViewControllerWillBeginLoadingFromPullToRefresh:(DRStateCollectViewController *)vc completionBlock:(void (^)(NSArray *indexPathsToInsert))success failure:(void (^)(NSError *error))failure;
 
 @required
-- (void) statefulTableViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure;
+- (void) stateCollectViewControllerWillBeginLoadingNextPage:(DRStateCollectViewController *)vc completionBlock:(void (^)())success failure:(void (^)(NSError *error))failure;
 
 @required
-- (BOOL) statefulTableViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc;
+- (BOOL) stateCollectViewControllerShouldBeginLoadingNextPage:(DRStateCollectViewController *)vc;
 
 @optional
-- (void) statefulTableViewController:(DRStateCollectViewController *)vc willTransitionToState:(DRStateCollectViewControllerState)state;
+- (void) stateCollectViewController:(DRStateCollectViewController *)vc willTransitionToState:(DRStateCollectViewControllerState)state;
 
 @optional
-- (void) statefulTableViewController:(DRStateCollectViewController *)vc didTransitionToState:(DRStateCollectViewControllerState)state;
+- (void) stateCollectViewController:(DRStateCollectViewController *)vc didTransitionToState:(DRStateCollectViewControllerState)state;
 
 @optional
-- (BOOL) statefulTableViewControllerShouldPullToRefresh:(DRStateCollectViewController *)vc;
+- (BOOL) stateCollectViewControllerShouldPullToRefresh:(DRStateCollectViewController *)vc;
 
 @optional
-- (BOOL) statefulTableViewControllerShouldInfinitelyScroll:(DRStateCollectViewController *)vc;
+- (BOOL) stateCollectViewControllerShouldInfinitelyScroll:(DRStateCollectViewController *)vc;
 
 @end
 
