@@ -13,18 +13,15 @@
 		5104552B17FD4658008326CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5104552917FD4658008326CC /* InfoPlist.strings */; };
 		5104552D17FD4658008326CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104552C17FD4658008326CC /* main.m */; };
 		5104553117FD4658008326CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104553017FD4658008326CC /* AppDelegate.m */; };
-		5104553417FD4658008326CC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5104553217FD4658008326CC /* Main_iPhone.storyboard */; };
-		5104553717FD4658008326CC /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5104553517FD4658008326CC /* Main_iPad.storyboard */; };
 		5104553A17FD4658008326CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104553917FD4658008326CC /* ViewController.m */; };
 		5104553C17FD4658008326CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5104553B17FD4658008326CC /* Images.xcassets */; };
-		5104554317FD4658008326CC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5104554217FD4658008326CC /* XCTest.framework */; };
 		5104554417FD4658008326CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5104552017FD4658008326CC /* Foundation.framework */; };
 		5104554517FD4658008326CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5104552417FD4658008326CC /* UIKit.framework */; };
-		5104554D17FD4658008326CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5104554B17FD4658008326CC /* InfoPlist.strings */; };
-		5104554F17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104554E17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m */; };
-		5104555A17FD4770008326CC /* DRStateCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104555917FD4770008326CC /* DRStateCollectViewController.m */; };
 		5104555F17FD54FD008326CC /* thumbnailViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104555E17FD54FD008326CC /* thumbnailViewCell.m */; };
 		5104556217FD556E008326CC /* ThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5104556117FD556E008326CC /* ThumbnailViewController.m */; };
+		51C3404F1800D99E0099119D /* DRStateCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C3404E1800D99E0099119D /* DRStateCollectViewController.m */; };
+		51C340501800DA290099119D /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5104553217FD4658008326CC /* Main_iPhone.storyboard */; };
+		51C340511800DA290099119D /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5104553517FD4658008326CC /* Main_iPad.storyboard */; };
 		51C6B0BA17FE9CAC006F47B9 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C6B09817FE9CAC006F47B9 /* AFHTTPRequestOperation.m */; };
 		51C6B0BB17FE9CAC006F47B9 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C6B09A17FE9CAC006F47B9 /* AFHTTPRequestOperationManager.m */; };
 		51C6B0BC17FE9CAC006F47B9 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 51C6B09C17FE9CAC006F47B9 /* AFHTTPSessionManager.m */; };
@@ -56,14 +53,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5104551D17FD4658008326CC /* DRStatefulCollectionViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRStatefulCollectionViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5104551D17FD4658008326CC /* DRStateCollectViewControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DRStateCollectViewControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5104552017FD4658008326CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5104552217FD4658008326CC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5104552417FD4658008326CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		5104552817FD4658008326CC /* DRStatefulCollectionViewControllerDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DRStatefulCollectionViewControllerDemo-Info.plist"; sourceTree = "<group>"; };
+		5104552817FD4658008326CC /* DRStateCollectViewControllerDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DRStateCollectViewControllerDemo-Info.plist"; sourceTree = "<group>"; };
 		5104552A17FD4658008326CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5104552C17FD4658008326CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5104552E17FD4658008326CC /* DRStatefulCollectionViewControllerDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DRStatefulCollectionViewControllerDemo-Prefix.pch"; sourceTree = "<group>"; };
+		5104552E17FD4658008326CC /* DRStateCollectViewControllerDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DRStateCollectViewControllerDemo-Prefix.pch"; sourceTree = "<group>"; };
 		5104552F17FD4658008326CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5104553017FD4658008326CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5104553317FD4658008326CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -71,17 +68,13 @@
 		5104553817FD4658008326CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5104553917FD4658008326CC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5104553B17FD4658008326CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5104554117FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRStatefulCollectionViewControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5104554217FD4658008326CC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		5104554A17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DRStatefulCollectionViewControllerDemoTests-Info.plist"; sourceTree = "<group>"; };
-		5104554C17FD4658008326CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		5104554E17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DRStatefulCollectionViewControllerDemoTests.m; sourceTree = "<group>"; };
-		5104555817FD4770008326CC /* DRStateCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = DRStateCollectViewController.h; path = DRStatefulCollectionViewController/DRStateCollectViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		5104555917FD4770008326CC /* DRStateCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DRStateCollectViewController.m; path = DRStatefulCollectionViewController/DRStateCollectViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		5104554117FD4658008326CC /* DRStateCollectViewControllerDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRStateCollectViewControllerDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5104555D17FD54FD008326CC /* thumbnailViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thumbnailViewCell.h; sourceTree = "<group>"; };
 		5104555E17FD54FD008326CC /* thumbnailViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = thumbnailViewCell.m; sourceTree = "<group>"; };
 		5104556017FD556E008326CC /* ThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailViewController.h; sourceTree = "<group>"; };
 		5104556117FD556E008326CC /* ThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailViewController.m; sourceTree = "<group>"; };
+		51C3404D1800D99E0099119D /* DRStateCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRStateCollectViewController.h; sourceTree = "<group>"; };
+		51C3404E1800D99E0099119D /* DRStateCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRStateCollectViewController.m; sourceTree = "<group>"; };
 		51C6B09717FE9CAC006F47B9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		51C6B09817FE9CAC006F47B9 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		51C6B09917FE9CAC006F47B9 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -138,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5104554317FD4658008326CC /* XCTest.framework in Frameworks */,
 				5104554517FD4658008326CC /* UIKit.framework in Frameworks */,
 				5104554417FD4658008326CC /* Foundation.framework in Frameworks */,
 			);
@@ -150,10 +142,9 @@
 		5104551417FD4658008326CC = {
 			isa = PBXGroup;
 			children = (
+				51C3404C1800D99E0099119D /* DRStateCollectViewController */,
 				51C6B0D217FE9CE1006F47B9 /* thirdparty */,
-				5104555B17FD4775008326CC /* DRStatefulCollectionViewController */,
 				5104552617FD4658008326CC /* DRStatefulCollectionViewControllerDemo */,
-				5104554817FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests */,
 				5104551F17FD4658008326CC /* Frameworks */,
 				5104551E17FD4658008326CC /* Products */,
 			);
@@ -162,8 +153,8 @@
 		5104551E17FD4658008326CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5104551D17FD4658008326CC /* DRStatefulCollectionViewControllerDemo.app */,
-				5104554117FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.xctest */,
+				5104551D17FD4658008326CC /* DRStateCollectViewControllerDemo.app */,
+				5104554117FD4658008326CC /* DRStateCollectViewControllerDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,7 +165,6 @@
 				5104552017FD4658008326CC /* Foundation.framework */,
 				5104552217FD4658008326CC /* CoreGraphics.framework */,
 				5104552417FD4658008326CC /* UIKit.framework */,
-				5104554217FD4658008326CC /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,39 +191,21 @@
 		5104552717FD4658008326CC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5104552817FD4658008326CC /* DRStatefulCollectionViewControllerDemo-Info.plist */,
+				5104552817FD4658008326CC /* DRStateCollectViewControllerDemo-Info.plist */,
 				5104552917FD4658008326CC /* InfoPlist.strings */,
 				5104552C17FD4658008326CC /* main.m */,
-				5104552E17FD4658008326CC /* DRStatefulCollectionViewControllerDemo-Prefix.pch */,
+				5104552E17FD4658008326CC /* DRStateCollectViewControllerDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5104554817FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests */ = {
+		51C3404C1800D99E0099119D /* DRStateCollectViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5104554E17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m */,
-				5104554917FD4658008326CC /* Supporting Files */,
+				51C3404D1800D99E0099119D /* DRStateCollectViewController.h */,
+				51C3404E1800D99E0099119D /* DRStateCollectViewController.m */,
 			);
-			path = DRStatefulCollectionViewControllerDemoTests;
-			sourceTree = "<group>";
-		};
-		5104554917FD4658008326CC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5104554A17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests-Info.plist */,
-				5104554B17FD4658008326CC /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5104555B17FD4775008326CC /* DRStatefulCollectionViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5104555817FD4770008326CC /* DRStateCollectViewController.h */,
-				5104555917FD4770008326CC /* DRStateCollectViewController.m */,
-			);
-			name = DRStatefulCollectionViewController;
+			path = DRStateCollectViewController;
 			sourceTree = "<group>";
 		};
 		51C6B09617FE9CAC006F47B9 /* AFNetworking */ = {
@@ -312,9 +284,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5104551C17FD4658008326CC /* DRStatefulCollectionViewControllerDemo */ = {
+		5104551C17FD4658008326CC /* DRStateCollectViewControllerDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5104555217FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStatefulCollectionViewControllerDemo" */;
+			buildConfigurationList = 5104555217FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStateCollectViewControllerDemo" */;
 			buildPhases = (
 				5104551917FD4658008326CC /* Sources */,
 				5104551A17FD4658008326CC /* Frameworks */,
@@ -324,14 +296,14 @@
 			);
 			dependencies = (
 			);
-			name = DRStatefulCollectionViewControllerDemo;
+			name = DRStateCollectViewControllerDemo;
 			productName = DRStatefulCollectionViewControllerDemo;
-			productReference = 5104551D17FD4658008326CC /* DRStatefulCollectionViewControllerDemo.app */;
+			productReference = 5104551D17FD4658008326CC /* DRStateCollectViewControllerDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5104554017FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests */ = {
+		5104554017FD4658008326CC /* DRStateCollectViewControllerDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5104555517FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStatefulCollectionViewControllerDemoTests" */;
+			buildConfigurationList = 5104555517FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStateCollectViewControllerDemoTests" */;
 			buildPhases = (
 				5104553D17FD4658008326CC /* Sources */,
 				5104553E17FD4658008326CC /* Frameworks */,
@@ -342,9 +314,9 @@
 			dependencies = (
 				5104554717FD4658008326CC /* PBXTargetDependency */,
 			);
-			name = DRStatefulCollectionViewControllerDemoTests;
+			name = DRStateCollectViewControllerDemoTests;
 			productName = DRStatefulCollectionViewControllerDemoTests;
-			productReference = 5104554117FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.xctest */;
+			productReference = 5104554117FD4658008326CC /* DRStateCollectViewControllerDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -361,7 +333,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5104551817FD4658008326CC /* Build configuration list for PBXProject "DRStatefulCollectionViewControllerDemo" */;
+			buildConfigurationList = 5104551817FD4658008326CC /* Build configuration list for PBXProject "DRStateCollectViewControllerDemo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -374,8 +346,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5104551C17FD4658008326CC /* DRStatefulCollectionViewControllerDemo */,
-				5104554017FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests */,
+				5104551C17FD4658008326CC /* DRStateCollectViewControllerDemo */,
+				5104554017FD4658008326CC /* DRStateCollectViewControllerDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -385,9 +357,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5104553717FD4658008326CC /* Main_iPad.storyboard in Resources */,
+				51C340501800DA290099119D /* Main_iPhone.storyboard in Resources */,
+				51C340511800DA290099119D /* Main_iPad.storyboard in Resources */,
 				5104553C17FD4658008326CC /* Images.xcassets in Resources */,
-				5104553417FD4658008326CC /* Main_iPhone.storyboard in Resources */,
 				5104552B17FD4658008326CC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,7 +368,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5104554D17FD4658008326CC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,7 +379,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				51C6B0C217FE9CAC006F47B9 /* AFURLSessionManager.m in Sources */,
-				5104555A17FD4770008326CC /* DRStateCollectViewController.m in Sources */,
 				5104553A17FD4658008326CC /* ViewController.m in Sources */,
 				51C6B0BD17FE9CAC006F47B9 /* AFNetworkReachabilityManager.m in Sources */,
 				51C6B0C317FE9CAC006F47B9 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -421,6 +391,7 @@
 				5104556217FD556E008326CC /* ThumbnailViewController.m in Sources */,
 				51C6B0C617FE9CAC006F47B9 /* UIButton+AFNetworking.m in Sources */,
 				51C6B0C717FE9CAC006F47B9 /* UIImageView+AFNetworking.m in Sources */,
+				51C3404F1800D99E0099119D /* DRStateCollectViewController.m in Sources */,
 				5104552D17FD4658008326CC /* main.m in Sources */,
 				5104555F17FD54FD008326CC /* thumbnailViewCell.m in Sources */,
 				51C6B0C517FE9CAC006F47B9 /* UIAlertView+AFNetworking.m in Sources */,
@@ -438,7 +409,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5104554F17FD4658008326CC /* DRStatefulCollectionViewControllerDemoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +417,7 @@
 /* Begin PBXTargetDependency section */
 		5104554717FD4658008326CC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5104551C17FD4658008326CC /* DRStatefulCollectionViewControllerDemo */;
+			target = 5104551C17FD4658008326CC /* DRStateCollectViewControllerDemo */;
 			targetProxy = 5104554617FD4658008326CC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -475,14 +445,6 @@
 				5104553617FD4658008326CC /* Base */,
 			);
 			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		5104554B17FD4658008326CC /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5104554C17FD4658008326CC /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -569,10 +531,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DRStatefulCollectionViewControllerDemo/DRStatefulCollectionViewControllerDemo-Prefix.pch";
-				INFOPLIST_FILE = "DRStatefulCollectionViewControllerDemo/DRStatefulCollectionViewControllerDemo-Info.plist";
+				GCC_PREFIX_HEADER = "DRStatefulCollectionViewControllerDemo/DRStateCollectViewControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "DRStatefulCollectionViewControllerDemo/DRStateCollectViewControllerDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DRStateCollectViewControllerDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -584,10 +546,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DRStatefulCollectionViewControllerDemo/DRStatefulCollectionViewControllerDemo-Prefix.pch";
-				INFOPLIST_FILE = "DRStatefulCollectionViewControllerDemo/DRStatefulCollectionViewControllerDemo-Info.plist";
+				GCC_PREFIX_HEADER = "DRStatefulCollectionViewControllerDemo/DRStateCollectViewControllerDemo-Prefix.pch";
+				INFOPLIST_FILE = "DRStatefulCollectionViewControllerDemo/DRStateCollectViewControllerDemo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DRStateCollectViewControllerDemo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -608,8 +570,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "DRStatefulCollectionViewControllerDemoTests/DRStatefulCollectionViewControllerDemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DRStatefulCollectionViewControllerDemoTests/DRStateCollectViewControllerDemoTests-Info.plist";
+				PRODUCT_NAME = DRStateCollectViewControllerDemoTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -627,8 +589,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DRStatefulCollectionViewControllerDemo/DRStatefulCollectionViewControllerDemo-Prefix.pch";
-				INFOPLIST_FILE = "DRStatefulCollectionViewControllerDemoTests/DRStatefulCollectionViewControllerDemoTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "DRStatefulCollectionViewControllerDemoTests/DRStateCollectViewControllerDemoTests-Info.plist";
+				PRODUCT_NAME = DRStateCollectViewControllerDemoTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -637,7 +599,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5104551817FD4658008326CC /* Build configuration list for PBXProject "DRStatefulCollectionViewControllerDemo" */ = {
+		5104551817FD4658008326CC /* Build configuration list for PBXProject "DRStateCollectViewControllerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5104555017FD4658008326CC /* Debug */,
@@ -646,7 +608,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5104555217FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStatefulCollectionViewControllerDemo" */ = {
+		5104555217FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStateCollectViewControllerDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5104555317FD4658008326CC /* Debug */,
@@ -655,7 +617,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5104555517FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStatefulCollectionViewControllerDemoTests" */ = {
+		5104555517FD4658008326CC /* Build configuration list for PBXNativeTarget "DRStateCollectViewControllerDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5104555617FD4658008326CC /* Debug */,
