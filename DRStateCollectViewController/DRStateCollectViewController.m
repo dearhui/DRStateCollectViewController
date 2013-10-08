@@ -206,12 +206,14 @@
 
 #pragma mark - View Lifecycle
 
-- (void) loadView {
-    [super loadView];
+- (void) viewDidLoad {
+    [super viewDidLoad];
     
-    self.loadingView = [[UIView alloc] initWithFrame:self.collectionView.bounds];
-    self.loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.loadingView.backgroundColor = [UIColor greenColor];
+    if (!self.loadingView) {
+        self.loadingView = [[UIView alloc] initWithFrame:self.collectionView.bounds];
+        self.loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.loadingView.backgroundColor = [UIColor greenColor];
+    }
     
     self.emptyView = [[UIView alloc] initWithFrame:self.collectionView.bounds];
     self.emptyView.backgroundColor = [UIColor yellowColor];
@@ -220,10 +222,6 @@
     self.errorView.backgroundColor = [UIColor redColor];
     
     self.hasAddedPullToRefreshControl = NO;
-}
-
-- (void) viewDidLoad {
-    [super viewDidLoad];
     
     __block DRStateCollectViewController *safeSelf = self;
     
@@ -237,6 +235,7 @@
             self.refreshControl = [[UIRefreshControl alloc] init];
             [self.refreshControl addTarget:self action:@selector(_loadFromPullToRefresh) forControlEvents:UIControlEventValueChanged];
             [self.collectionView addSubview:self.refreshControl];
+            self.collectionView.alwaysBounceVertical = YES;
         } else {
             [self.collectionView addPullToRefreshWithActionHandler:^{
                 [safeSelf _loadFromPullToRefresh];

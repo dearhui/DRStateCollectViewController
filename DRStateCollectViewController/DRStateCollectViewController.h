@@ -56,9 +56,9 @@ typedef enum {
 @property (nonatomic) DRStateCollectViewControllerState statefulState;
 
 @property (nonatomic,retain) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) UIView *emptyView;
-@property (strong, nonatomic) UIView *loadingView;
-@property (strong, nonatomic) UIView *errorView;
+@property (strong, nonatomic) IBOutlet UIView *emptyView;
+@property (strong, nonatomic) IBOutlet UIView *loadingView;
+@property (strong, nonatomic) IBOutlet UIView *errorView;
 
 @property (nonatomic, unsafe_unretained) id <DRStateCollectViewControllerDelegate> statefulDelegate;
 
