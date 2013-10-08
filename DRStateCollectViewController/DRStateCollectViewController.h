@@ -51,11 +51,12 @@ typedef enum {
 
 @end
 
-@interface DRStateCollectViewController : UICollectionViewController <DRStateCollectViewControllerDelegate>
+@interface DRStateCollectViewController : UIViewController <DRStateCollectViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic) DRStateCollectViewControllerState statefulState;
 
-@property (nonatomic,retain) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UIView *emptyView;
 @property (strong, nonatomic) IBOutlet UIView *loadingView;
 @property (strong, nonatomic) IBOutlet UIView *errorView;
