@@ -7,6 +7,7 @@
 //
 
 #import "DRStateCollectViewController.h"
+#import "CSNotificationView.h"
 
 @interface SVPullToRefreshView ()
 
@@ -75,6 +76,9 @@
             self.statefulState = DRStateCollectViewControllerStateEmpty;
         }
     } failure:^(NSError *error) {
+        [CSNotificationView showInViewController:self
+                                           style:CSNotificationViewStyleError
+                                         message:error.localizedDescription];
         self.statefulState = DRStateCollectViewControllerError;
     } loadState:DRStateCollectStateLoadInitial];
 }
@@ -100,7 +104,9 @@
                 self.statefulState = DRStateCollectViewControllerStateEmpty;
             }
         } failure:^(NSError *error) {
-            //TODO What should we do here?
+            [CSNotificationView showInViewController:self
+                                               style:CSNotificationViewStyleError
+                                             message:error.localizedDescription];
             self.statefulState = DRStateCollectViewControllerStateIdle;
         } loadState:DRStateCollectStateLoadNext];
     } else {
@@ -155,31 +161,23 @@
     }
     
 	_statefulState = statefulState;
+    self.loadingView.hidden = YES;
+    self.collectionView.scrollEnabled = YES;
     
     switch (_statefulState) {
         case DRStateCollectViewControllerStateIdle:
             [self.collectionView.infiniteScrollingView stopAnimating];
-            [self.loadingView removeFromSuperview];
-            [self.emptyView removeFromSuperview];
-            [self.errorView removeFromSuperview];
-            self.collectionView.scrollEnabled = YES;
             [self.collectionView reloadData];
-            
             break;
             
         case DRStateCollectViewControllerStateInitialLoading:
-            [self.collectionView addSubview:self.loadingView];
+            self.loadingView.hidden = NO;
             self.collectionView.scrollEnabled = NO;
             [self.collectionView reloadData];
-            
             break;
-            
         case DRStateCollectViewControllerStateEmpty:
             [self.collectionView.infiniteScrollingView stopAnimating];
-            [self.collectionView addSubview:self.emptyView];
-            self.collectionView.scrollEnabled = NO;
             [self.collectionView reloadData];
-            
         case DRStateCollectViewControllerStateLoadingNextPage:
             // TODO
             break;
@@ -187,14 +185,10 @@
         case DRStateCollectViewControllerStateLoadingFromPullToRefresh:
             // TODO
             break;
-            
         case DRStateCollectViewControllerError:
             [self.collectionView.infiniteScrollingView stopAnimating];
-            [self.collectionView addSubview:self.errorView];
-            self.collectionView.scrollEnabled = NO;
             [self.collectionView reloadData];
-            break;
-            
+            break;            
         default:
             break;
     }
@@ -214,12 +208,6 @@
         self.loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.loadingView.backgroundColor = [UIColor greenColor];
     }
-    
-    self.emptyView = [[UIView alloc] initWithFrame:self.collectionView.bounds];
-    self.emptyView.backgroundColor = [UIColor yellowColor];
-    
-    self.errorView = [[UIView alloc] initWithFrame:self.collectionView.bounds];
-    self.errorView.backgroundColor = [UIColor redColor];
     
     self.hasAddedPullToRefreshControl = NO;
     
@@ -253,14 +241,6 @@
     [self updateInfiniteScrollingHandlerAndFooterView:shouldInfinitelyScroll];
     
     [self _loadFirstPage];
-}
-
-- (void) viewDidUnload {
-    [super viewDidUnload];
-    
-    self.loadingView = nil;
-    self.emptyView = nil;
-    self.errorView = nil;
 }
 
 - (void) updateInfiniteScrollingHandlerAndFooterView:(BOOL)shouldInfinitelyScroll {
