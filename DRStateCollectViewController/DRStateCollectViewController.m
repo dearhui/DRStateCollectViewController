@@ -127,8 +127,9 @@
             self.collectionView.showsInfiniteScrolling = YES;
         };
     } failure:^(NSError *error) {
-        //TODO: What should we do here?
-        
+        [CSNotificationView showInViewController:self
+                                           style:CSNotificationViewStyleError
+                                         message:error.localizedDescription];
         self.statefulState = DRStateCollectViewControllerStateIdle;
         [self _pullToRefreshFinishedLoading];
     } loadState:DRStateCollectStateLoadPull];
