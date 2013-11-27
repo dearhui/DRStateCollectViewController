@@ -73,6 +73,9 @@
         if([self _totalNumberOfRows] > 0) {
             self.statefulState = DRStateCollectViewControllerStateIdle;
         } else {
+            [CSNotificationView showInViewController:self
+                                               style:CSNotificationViewStyleError
+                                             message:NSLocalizedString(@"No Photos", nil)];
             self.statefulState = DRStateCollectViewControllerStateEmpty;
         }
     } failure:^(NSError *error) {
