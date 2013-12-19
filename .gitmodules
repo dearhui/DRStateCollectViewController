@@ -1,9 +1,0 @@
-[submodule "thirdparty/AFNetworking"]
-	path = thirdparty/AFNetworking
-	url = https://github.com/AFNetworking/AFNetworking
-[submodule "thirdparty/SVPullToRefresh"]
-	path = thirdparty/SVPullToRefresh
-	url = https://github.com/samvermette/SVPullToRefresh
-[submodule "thirdparty/CSNotificationView"]
-	path = thirdparty/CSNotificationView
-	url = https://github.com/problame/CSNotificationView
