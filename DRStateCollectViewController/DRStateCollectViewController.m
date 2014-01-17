@@ -7,7 +7,6 @@
 //
 
 #import "DRStateCollectViewController.h"
-#import "CSNotificationView.h"
 
 @interface SVPullToRefreshView ()
 
@@ -73,15 +72,11 @@
         if([self _totalNumberOfRows] > 0) {
             self.statefulState = DRStateCollectViewControllerStateIdle;
         } else {
-            [CSNotificationView showInViewController:self
-                                               style:CSNotificationViewStyleError
-                                             message:NSLocalizedString(@"No Photos", nil)];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"找不到任何照片", nil)];
             self.statefulState = DRStateCollectViewControllerStateEmpty;
         }
     } failure:^(NSError *error) {
-        [CSNotificationView showInViewController:self
-                                           style:CSNotificationViewStyleError
-                                         message:error.localizedDescription];
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
         self.statefulState = DRStateCollectViewControllerError;
     } loadState:DRStateCollectStateLoadInitial];
 }
@@ -107,9 +102,7 @@
                 self.statefulState = DRStateCollectViewControllerStateEmpty;
             }
         } failure:^(NSError *error) {
-            [CSNotificationView showInViewController:self
-                                               style:CSNotificationViewStyleError
-                                             message:error.localizedDescription];
+            [SVProgressHUD showErrorWithStatus:error.localizedDescription];
             self.statefulState = DRStateCollectViewControllerStateIdle;
         } loadState:DRStateCollectStateLoadNext];
     } else {
@@ -130,9 +123,7 @@
             self.collectionView.showsInfiniteScrolling = YES;
         };
     } failure:^(NSError *error) {
-        [CSNotificationView showInViewController:self
-                                           style:CSNotificationViewStyleError
-                                         message:error.localizedDescription];
+        [SVProgressHUD showErrorWithStatus:error.localizedDescription];
         self.statefulState = DRStateCollectViewControllerStateIdle;
         [self _pullToRefreshFinishedLoading];
     } loadState:DRStateCollectStateLoadPull];
